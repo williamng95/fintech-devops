@@ -21,7 +21,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Load dependancies
-        run: yarn
+        run: |
+          cd gh-app
+          yarn
 
       - name: Deploy with gh-pages
         run: |
