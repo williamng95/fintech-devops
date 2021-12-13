@@ -12,17 +12,21 @@ on:
   workflow_dispatch:
   
 jobs:
-  build:
-
+  deploy:
+    name: Deploy site to gh-pages
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - run: |
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Load dependancies
+        run: yarn
+
+      - name: Deploy with gh-pages
+        run: |
           echo start deploy
-          cd gh-app
-          yarn install
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
-    - env:
+      - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
