@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fintech-devops/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/fintech-devops/static/js/main.e414ed02.chunk.js",
+    "main.js.map": "/fintech-devops/static/js/main.e414ed02.chunk.js.map",
+    "runtime-main.js": "/fintech-devops/static/js/runtime-main.c44d7398.js",
+    "runtime-main.js.map": "/fintech-devops/static/js/runtime-main.c44d7398.js.map",
+    "static/js/2.07694686.chunk.js": "/fintech-devops/static/js/2.07694686.chunk.js",
+    "static/js/2.07694686.chunk.js.map": "/fintech-devops/static/js/2.07694686.chunk.js.map",
+    "static/js/3.25992ac8.chunk.js": "/fintech-devops/static/js/3.25992ac8.chunk.js",
+    "static/js/3.25992ac8.chunk.js.map": "/fintech-devops/static/js/3.25992ac8.chunk.js.map",
+    "index.html": "/fintech-devops/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/fintech-devops/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.07694686.chunk.js.LICENSE.txt": "/fintech-devops/static/js/2.07694686.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/fintech-devops/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c44d7398.js",
+    "static/js/2.07694686.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.e414ed02.chunk.js"
+  ]
+}

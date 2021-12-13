@@ -1,2 +1,0 @@
-# fintech-devops
-test page
