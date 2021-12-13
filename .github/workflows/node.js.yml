@@ -18,6 +18,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
     - run: |
           echo start deploy
           cd gh-app
@@ -25,3 +27,5 @@ jobs:
           git config --global user.email github-actions@github.com
           yarn install
           npm run deploy
+      env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
