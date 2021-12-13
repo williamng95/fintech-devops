@@ -20,9 +20,9 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
           echo start deploy
-          cd gh-app
-          git config --global user.name github-actions
-          git config --global user.email github-actions@github.com
+          cd gh-app          
+          git config user.email "${{ secrets.GIT_CONFIG_EMAIL }}"
+          git config user.name "${{ secrets.GIT_CONFIG_NAME }}"
           yarn install
           npm run deploy
       env:
