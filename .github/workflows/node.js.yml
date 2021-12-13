@@ -21,5 +21,5 @@ jobs:
     - run: |
           echo start deploy
           cd gh-app
-          npm ci
+          yarn install
           npm run deploy
