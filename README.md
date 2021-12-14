@@ -26,7 +26,8 @@ Deployment of `gh-pages` is set in a different workflow and reused in the CI act
 This is to allow for automatic deployment if the need arises to directly commit on `main`
 
 ## Process Flow:
-
+![full actions flow](assets/fullprocess.svg)
+![full actions flow](assets/mainprocess.svg)
 
 
 
