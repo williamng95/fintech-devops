@@ -5,8 +5,8 @@
 [Live Site](https://williamng95.github.io/fintech-devops/)
 
 upon checks passing in dev branch (triggered by pull request/push), the following should happen:
-- source code is merged from `dev` to `main` 
-- code on `main` is deployed to `gh-pages` as live site
+- source code is merged from `dev` to `main` (CI)
+- code on `main` is deployed to `gh-pages` as live site (CD)
 
 This means that ideally, code should not be directly commited to `main`
 
@@ -25,6 +25,8 @@ Deployment of `gh-pages` is set in a different workflow and reused in the CI act
 
 This is to allow for automatic deployment if the need arises to directly commit on `main`
 
+The deployment workflow also needs to be called explicitly in the full CI/CD workflow, as GitHub's default policy prevents GitHub Actions from triggering further events recursively[^5]
+
 ## Process Flow:
 <div align="center">
 
@@ -33,7 +35,11 @@ This is to allow for automatic deployment if the need arises to directly commit 
 </div>
 
 
+## Git branches
+<div align="center">
 
+![git flow](assets/branching.svg)
+</div>
 
 
 ## TODO:
@@ -41,7 +47,7 @@ This is to allow for automatic deployment if the need arises to directly commit 
 - [X] trigger auto deploy from `main`
 - [X] trigger auto merge from `dev`
 - [X] check full flow
-- [ ] complete README
+- [X] complete README
 - [ ] prettify page :tada:
 
 
@@ -53,3 +59,5 @@ This is to allow for automatic deployment if the need arises to directly commit 
 [^3]:https://github.com/tschaub/gh-pages/issues/345
 
 [^4]:https://docs.github.com/en/actions/learn-github-actions/reusing-workflows#creating-a-reusable-workflow
+
+[^5]:https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
