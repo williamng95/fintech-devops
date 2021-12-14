@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          a small change
+          can both workflows launch correctly?
         </p>
         <a
           className="App-link"
