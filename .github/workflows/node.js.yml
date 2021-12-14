@@ -58,7 +58,7 @@ jobs:
         git push
   
   deploy:
-    uses: ./github/workflows/react.js.yml
+    uses: ./github/workflows/react.js.yml@main
     needs: merge
 
 
