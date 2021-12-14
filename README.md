@@ -5,20 +5,59 @@
 [Live Site](https://williamng95.github.io/fintech-devops/)
 
 upon checks passing in dev branch (triggered by pull request/push), the following should happen:
-- source code is merged from `dev` to `main` 
-- code on `main` is deployed to `gh-pages` as live site
+- source code is merged from `dev` to `main` (CI)
+- code on `main` is deployed to `gh-pages` as live site (CD)
 
-credits:
+This means that ideally, code should not be directly commited to `main`
 
-https://github.com/tschaub/gh-pages/issues/345
+Instead, `dev` serves as a staging area to build and test commits, before automatic deployment
 
-https://github.com/tschaub/gh-pages
+### Code Checks
+Default build checks for Node 12, 14, 16
 
-https://create-react-app.dev/docs/deployment/#github-pages
+### GitHub pages deployemnt
+Leverages gh-pages, as suggested by React.js[^1]
 
-TODO:
+For gh-pages to work within GitHub Actions, git config must be defined explicitly and fed to deploy script [^2][^3]
+
+### Code Reuse
+Deployment of `gh-pages` is set in a different workflow and reused in the CI action, after merge is completed on main[^4]
+
+This is to allow for automatic deployment if the need arises to directly commit on `main`
+
+The deployment workflow also needs to be called explicitly in the full CI/CD workflow, as GitHub's default policy prevents GitHub Actions from triggering further events recursively[^5]
+
+## Process Flow:
+<div align="center">
+
+![full actions flow](assets/fullprocess.svg)
+![full actions flow](assets/mainprocess.svg)
+</div>
+
+
+## Git branches
+<div align="center">
+
+![git flow](assets/branching.svg)
+</div>
+
+
+## TODO:
 
 - [X] trigger auto deploy from `main`
-- [ ] trigger auto merge from `dev`
-- [ ] check full flow
+- [X] trigger auto merge from `dev`
+- [X] check full flow
+- [X] complete README
 - [ ] prettify page :tada:
+
+
+<!--REFERENCES-->
+[^1]:https://create-react-app.dev/docs/deployment/#github-pages
+
+[^2]:https://github.com/tschaub/gh-pages
+
+[^3]:https://github.com/tschaub/gh-pages/issues/345
+
+[^4]:https://docs.github.com/en/actions/learn-github-actions/reusing-workflows#creating-a-reusable-workflow
+
+[^5]:https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
