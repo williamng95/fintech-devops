@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/fintech-devops",
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "gh-app",
