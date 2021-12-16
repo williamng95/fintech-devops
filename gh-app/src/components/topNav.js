@@ -1,6 +1,6 @@
 import * as React from "react"
 import {Navbar,NavDropdown,Nav,Container,Form,FormControl,Button} from "react-bootstrap"
-import {withPrefix} from 'gatsby'
+import {Link, withPrefix} from 'gatsby'
 
 const TopNav = () => {
     return (
@@ -11,7 +11,9 @@ const TopNav = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href={withPrefix('/')}></Nav.Link>
+                            <Nav.Link >
+                                <Link to="/" />
+                            </Nav.Link>
                             <Nav.Link href={withPrefix('/link')}>Link</Nav.Link>
                             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
