@@ -78,7 +78,12 @@ An automated workflow to deploy a React/Gatsby app to GitHub Pages is demonstrat
 Workflow can account for edge situations, but at a performance cost.
 
 
-
+### Tested:
+- main
+    - build fail
+    - merge + build +deploy pass
+- full
+    - all pass
 ## TODO:
 
 - [X] trigger auto deploy from `main`
