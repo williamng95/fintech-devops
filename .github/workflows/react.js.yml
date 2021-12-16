@@ -29,7 +29,7 @@ jobs:
         git status
         git checkout dev
         git status
-        git merge -s ort -X ours --allow-unrelated-histories dev
+        git merge -s ort -X ours --allow-unrelated-histories main
         git push
   deploy:
     name: Deploy site to gh-pages
