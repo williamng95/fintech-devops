@@ -32,30 +32,38 @@ Leverages gh-pages, as suggested by React[^1]
 For gh-pages to work within GitHub Actions, git config must be defined explicitly and fed to deploy script [^2][^3]
 
 ### Action Reuse
-Deployment of `gh-pages` is set in a different workflow and reused in the CI action, after merge is completed on main[^4]
+There are 2 workflows, one for `dev` and another for `main`.
 
-This is to allow for automatic deployment if the need arises to directly commit on `main`
+This is to allow for automatic deployment if the need arises to directly commit on `main`.
 
-The deployment workflow also needs to be called explicitly in the full CI/CD workflow, as GitHub's default policy prevents GitHub Actions from triggering further events recursively[^5]
+As the 2 flows have largely similar requirements, we can leverage on reusable workflows in the spirit of DRY.[^4]
+
+The deployment workflow also needs to be called explicitly in the full CI/CD workflow yml, as GitHub's default policy prevents GitHub Actions from triggering further events recursively.[^5]
 
 ## Process Flow:
+### Regular, Safe commits onto `dev`
 Completed code from `features/...` is merged on to the `dev` branch, triggering a series of actions. 
 
 If the merged code on `dev` can build, `dev` is merged onto `main` and then deployed to `gh-pages`.
+
 <div align="center">
 
 ![full actions flow](assets/fullprocess.svg)
 </div>
 
+### Commits onto `main`
 An action to deploy is also in place in case any code is directly commited to main, so that `gh-pages` and `main` are always in sync.
 
-This action however means that `dev` will need to be manually merged back, due to unrelated history and potential for conflicts.
+A merge is also performed from `main` to `dev`, using the with `main` as the priority branch for resolving conflicts.
 
 <div align="center">
 
 ![full actions flow](assets/mainprocess.svg)
 </div>
 
+### Repeated actions
+
+As a result of reusing the second workflow, and accounting for unexpected situations, when commits are made on `dev` there are a number of redundant steps. While these are not expected to harm the outcome in any way, the speed at which the CI/CD completes will not be as fast.
 
 ## Git branches
 <div align="center">
@@ -67,7 +75,7 @@ This action however means that `dev` will need to be manually merged back, due t
 
 An automated workflow to deploy a React/Gatsby app to GitHub Pages is demonstrated. Gatsby was used for this static site as suggested by React.[^6]
 
-Strict adherence on where to commit changes is critical, as deviations may break the flow of the process.
+Workflow can account for edge situations, but at a performance cost.
 
 
 

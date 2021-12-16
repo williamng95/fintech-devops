@@ -57,7 +57,7 @@ jobs:
         git push
         
   deploy:
-    uses: williamng95/fintech-devops/.github/workflows/react.js.yml@main
+    uses: williamng95/fintech-devops/.github/workflows/main.yml@main
     needs: merge
 
 
