@@ -24,7 +24,7 @@ jobs:
       - name: Load dependencies
         run: |
           cd gh-app
-          yarn
+          npm ci
 
       - name: Deploy with gh-pages
         run: |
