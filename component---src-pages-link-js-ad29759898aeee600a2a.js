@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgh_app=self.webpackChunkgh_app||[]).push([[125],{7481:function(e,n,a){a.r(n);var t=a(7294),u=a(6031);n.default=function(){return t.createElement(u.Z,null,"this da link page")}}}]);
+//# sourceMappingURL=component---src-pages-link-js-ad29759898aeee600a2a.js.map
